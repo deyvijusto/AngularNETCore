@@ -1,0 +1,70 @@
+<h1>Aplikacija za izračun optimalnega izsekovanja rondelic</h1>
+<br />
+<div fxLayout="row">
+  <form
+    [formGroup]="rondelicaForm"
+    (ngSubmit)="onSubmit()"
+    fxLayout="column"
+    style="min-width: 600px;"
+  >
+    <label>
+      Dolžina traka:
+      <input type="number" formControlName="sirinaTraka" />
+    </label>
+    <br />
+    <label>
+      Širina traka:
+      <input type="number" formControlName="dolzinaTraka" />
+    </label>
+    <br />
+    <label>
+      Polmer rondelice:
+      <input type="number" formControlName="polmerRondelice" />
+    </label>
+    <br />
+    <label>
+      Minimalno razdaljo med dvema sosednjima rondelicama:
+      <input type="number" formControlName="minRazdaljaMedRondelicama" />
+    </label>
+    <br />
+    <label>
+      Minimalno razdaljo med rondelico in robovi traku:
+      <input type="number" formControlName="minRazdaljaMedRondelicoInTraka" />
+    </label>
+    <br />
+    <label>
+      Minimalna razdalja med rondelico in začetekom ter koncem traka:
+      <input
+        type="number"
+        formControlName="minRazdaljaMedRondelicoInZacetkomTraka"
+      />
+    </label>
+    <br />
+    <button type="submit" style="width: 100px;">Izračunaj</button>
+  </form>
+  <img
+    src="./assets/images/rondelica_nacrt.png"
+    alt=""
+    srcset=""
+    style="width: 600px;"
+  />
+</div>
+<br />
+<div fxLayout="row">
+  <div>
+    <h2>Rezultat algoritma</h2>
+    <button (click)="getRondelicaItems()">Prikaži Rondelice</button>
+    <div *ngFor="let item of rondelicaItems">
+      <p>Širina traku{{item.sirinaTraku}}</p>
+    </div>
+    <br />
+    <p>Maksimalno število rondelic: <strong>55</strong></p>
+    <p>Postavitev posamezne rondelice</p>
+  </div>
+  <div>
+    <h2>Izračuni:</h2>
+    <p>Površina traku: <strong>{{ ploscinaTrakuMM }} mm2, = </strong></p>
+    <p>Dejanska Površina traku: <strong>{{ dejanskaObdelovalnaPovrsina }}</strong>
+    </p>
+  </div>
+</div>

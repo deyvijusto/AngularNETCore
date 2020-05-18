@@ -1,8 +1,8 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
-public class Rondelica
+public class RondelicaItem
 {
+	public long Id { get; set; }
 	[Required]
 	public int SirinaTraku { get; set; }
 
@@ -12,9 +12,9 @@ public class Rondelica
 	[Required]
 	public int PolmerRondelic { get; set; }
 
-  [Required]
-  public int ZgornjiInSpodnjiRob { get; set; }
+	[Required]
+	public int ZgornjiInSpodnjiRob { get; set; }
 
-  [Required]
-  public int ZacetekInKonecRob { get; set; }
+	[Required]
+	public int ZacetekInKonecRob { get; set; }
 }
