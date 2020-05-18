@@ -13,31 +13,31 @@ import { RondelicaVnos } from './rondelica.model';
 export class RondelicaComponent implements OnInit {
 
   rondelicaForm = new FormGroup({
-    sirinaTraka: new FormControl(100),
-    dolzinaTraka: new FormControl(1000),
-    polmerRondelice: new FormControl(30),
+    sirinaTraku: new FormControl(100),
+    dolzinaTraku: new FormControl(1000),
+    polmerRondelic: new FormControl(30),
     minRazdaljaMedRondelicama: new FormControl(''),
-    minRazdaljaMedRondelicoInTraka: new FormControl(5),
-    minRazdaljaMedRondelicoInZacetkomTraka: new FormControl(10),
+    zgornjiInSpodnjiRob: new FormControl(5),
+    zacetekInKonecRob: new FormControl(10),
   });
 
-  get sirinaTraka() {
-    return this.rondelicaForm.get('sirinaTraka');
+  get sirinaTraku() {
+    return this.rondelicaForm.get('sirinaTraku');
   }
-  get dolzinaTraka() {
-    return this.rondelicaForm.get('dolzinaTraka');
+  get dolzinaTraku() {
+    return this.rondelicaForm.get('dolzinaTraku');
   }
-  get polmerRondelice() {
-    return this.rondelicaForm.get('polmerRondelice');
+  get polmerRondelic() {
+    return this.rondelicaForm.get('polmerRondelic');
   }
   get minRazdaljaMedRondelicama() {
     return this.rondelicaForm.get('minRazdaljaMedRondelicama');
   }
-  get minRazdaljaMedRondelicoInTraka() {
-    return this.rondelicaForm.get('minRazdaljaMedRondelicoInTraka');
+  get zgornjiInSpodnjiRob() {
+    return this.rondelicaForm.get('zgornjiInSpodnjiRob');
   }
-  get minRazdaljaMedRondelicoInZacetkomTraka() {
-    return this.rondelicaForm.get('minRazdaljaMedRondelicoInZacetkomTraka');
+  get zacetekInKonecRob() {
+    return this.rondelicaForm.get('zacetekInKonecRob');
   }
 
   ploscinaTrakuMM: number;
@@ -48,6 +48,7 @@ export class RondelicaComponent implements OnInit {
 
   readonly ROOT_URL = 'http://localhost:5000/api';
   rondelicaItems: RondelicaVnos;
+  steviloVnosov: number = 10;
 
   constructor(private http: HttpClient) {
     this.http.get<RondelicaVnos>(this.ROOT_URL + '/rondelicaItems').subscribe(result => {
@@ -57,17 +58,6 @@ export class RondelicaComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.http.get(this.ROOT_URL).subscribe(data => {
-    //   this.items = data;
-    // })
-  }
-
-  getRondelicaItems() {
-    
-  }
-
-  getRondelicaItems2() {
-    // this.rondelicaItems = this.http.get(this.ROOT_URL + '/rondelicaItems');
   }
 
   onSubmit() {
@@ -75,9 +65,25 @@ export class RondelicaComponent implements OnInit {
     this.addRondelicaItem(this.rondelicaForm.value);
   }
 
-  addRondelicaItem(data) {
-    // this.http.post( this.serverURL, data).subscribe(x => console.log(x, 'data') );
-      
+  addRondelicaItem(form) {
+    const data: RondelicaVnos = {
+      id: null,
+      SirinaTraku: this.sirinaTraku.value,
+      DolzinaTraku: this.dolzinaTraku.value,
+      PolmerRondelic: this.polmerRondelic.value,
+      ZgornjiInSpodnjiRob: this.zgornjiInSpodnjiRob.value,
+      ZacetekInKonecRob: this.zacetekInKonecRob.value,
+    }
+    const data2: RondelicaVnos = form
+    console.log(data, 'DAAAAAAAAAAAAAAAAATTATATA');
+    const data3: any = {
+      "sirinaTraku": 10,
+      "dolzinaTraku": 20,
+      "polmerRondelic": 30,
+      "zgornjiInSpodnjiRob": 40,
+      "zacetekInKonecRob": 8888
+    }
+    this.http.post( this.ROOT_URL + '/rondelicaItems', data2).subscribe(x => console.log(x, 'data') ); 
   }
 
 

@@ -9,17 +9,17 @@
   >
     <label>
       Dolžina traka:
-      <input type="number" formControlName="sirinaTraka" />
+      <input type="number" formControlName="sirinaTraku" />
     </label>
     <br />
     <label>
       Širina traka:
-      <input type="number" formControlName="dolzinaTraka" />
+      <input type="number" formControlName="dolzinaTraku" />
     </label>
     <br />
     <label>
       Polmer rondelice:
-      <input type="number" formControlName="polmerRondelice" />
+      <input type="number" formControlName="polmerRondelic" />
     </label>
     <br />
     <label>
@@ -29,14 +29,14 @@
     <br />
     <label>
       Minimalno razdaljo med rondelico in robovi traku:
-      <input type="number" formControlName="minRazdaljaMedRondelicoInTraka" />
+      <input type="number" formControlName="zgornjiInSpodnjiRob" />
     </label>
     <br />
     <label>
       Minimalna razdalja med rondelico in začetekom ter koncem traka:
       <input
         type="number"
-        formControlName="minRazdaljaMedRondelicoInZacetkomTraka"
+        formControlName="zacetekInKonecRob"
       />
     </label>
     <br />
@@ -53,9 +53,9 @@
 <div fxLayout="row">
   <div>
     <h2>Rezultat algoritma</h2>
-    <button (click)="getRondelicaItems()">Prikaži Rondelice</button>
+    <button>Prikaži Rondelice</button>
     <div *ngFor="let item of rondelicaItems">
-      <p>Širina traku{{item.sirinaTraku}}</p>
+      <h3>Širina traku:{{item.sirinaTraku}}, Dolžina: {{item.dolzinaTraka}}</h3>
     </div>
     <br />
     <p>Maksimalno število rondelic: <strong>55</strong></p>
@@ -63,6 +63,7 @@
   </div>
   <div>
     <h2>Izračuni:</h2>
+    <p>Število vseh Vnosov: <strong>{{steviloVnosov}}</strong></p>
     <p>Površina traku: <strong>{{ ploscinaTrakuMM }} mm2, = </strong></p>
     <p>Dejanska Površina traku: <strong>{{ dejanskaObdelovalnaPovrsina }}</strong>
     </p>
