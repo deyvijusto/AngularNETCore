@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RondelicaComponent } from './rondelica/rondelica.component';
+import { RondelicaFormComponent } from './rondelica/rondelica-form/rondelica-form.component';
 
 @NgModule({
    declarations: [
@@ -20,7 +21,8 @@ import { RondelicaComponent } from './rondelica/rondelica.component';
       HomeComponent,
       CounterComponent,
       FetchDataComponent,
-      RondelicaComponent
+      RondelicaComponent,
+      RondelicaFormComponent
    ],
    imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
