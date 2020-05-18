@@ -80,10 +80,14 @@ namespace AngularNETCore.Controllers
         [HttpPost]
         public async Task<ActionResult<RondelicaItem>> PostRondelicaItem(RondelicaItem rondelicaItem)
         {
+            rondelicaItem.SteviloOptimalnihRondelic = AlgoritemRondelice.IzracunRondelice(
+                rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob
+            );
+            rondelicaItem.SirinaTraku = 199;
             _context.RondelicaItem.Add(rondelicaItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRondelicaItem", new { id = rondelicaItem.Id }, rondelicaItem);
+            return CreatedAtAction("GetRondelicaItem", new { id = rondelicaItem.Id,  }, rondelicaItem);
         }
 
         // DELETE: api/RondelicaItems/5

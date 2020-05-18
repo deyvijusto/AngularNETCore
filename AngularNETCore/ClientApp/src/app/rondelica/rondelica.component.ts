@@ -61,7 +61,7 @@ export class RondelicaComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.rondelicaForm.value);
+    // console.log(this.rondelicaForm.value);
     this.addRondelicaItem(this.rondelicaForm.value);
   }
 
@@ -75,7 +75,7 @@ export class RondelicaComponent implements OnInit {
       ZacetekInKonecRob: this.zacetekInKonecRob.value,
     }
     const data2: RondelicaVnos = form
-    console.log(data, 'DAAAAAAAAAAAAAAAAATTATATA');
+   //  console.log(data, 'DAAAAAAAAAAAAAAAAATTATATA');
     const data3: any = {
       "sirinaTraku": 10,
       "dolzinaTraku": 20,

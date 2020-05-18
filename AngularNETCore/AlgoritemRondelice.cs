@@ -8,7 +8,7 @@ namespace AngularNETCore
     public class AlgoritemRondelice
     {
 
-        public int izracunRondelice(int sirinaTraka, int dolzinaTraka, int polmerRondelice, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
+        public static int IzracunRondelice(int sirinaTraka, int dolzinaTraka, int polmerRondelice, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
         {
             int ploscina = CelotnaPloscinaTrak(sirinaTraka, dolzinaTraka);
             int ploscinaRobov = PloscinaRobov(sirinaTraka, dolzinaTraka, zgornjiInSpodnjiRob, zacetekInKonecRoba);
@@ -18,17 +18,17 @@ namespace AngularNETCore
             return steviloRondelic;
         }
 
-        public int DejanskaObdelovalnaPovrsina(int celotnaPloscina, int ploscinaRobov)
+        private static int DejanskaObdelovalnaPovrsina(int celotnaPloscina, int ploscinaRobov)
         {
             int obdelovalnaPovrsina = celotnaPloscina - ploscinaRobov;
             return obdelovalnaPovrsina;
         }
 
-        public int CelotnaPloscinaTrak(int sirinaTraka, int dolzinaTraka) {
+        private static int CelotnaPloscinaTrak(int sirinaTraka, int dolzinaTraka) {
             int ploscina = sirinaTraka * dolzinaTraka;
             return ploscina;
         }
-        public int PloscinaRobov(int sirinaTraka, int dolzinaTraka, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
+        private static int PloscinaRobov(int sirinaTraka, int dolzinaTraka, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
         {
             int ploscinaZgornjiInSpodnjiRob = 2 * (zgornjiInSpodnjiRob * dolzinaTraka);
             int sirinaTrakaBrezRoba = sirinaTraka - (2 * zgornjiInSpodnjiRob);
@@ -36,9 +36,10 @@ namespace AngularNETCore
             int ploscinaRobov = 2* ploscinaZgornjiInSpodnjiRob + 2*ploscinaZacetekInKonecRob;
             return ploscinaRobov;
         }
-        public int IzracunSteviloRondelic(int obdelovalnaPovrsina, int polmerRondelice)
+        private static int IzracunSteviloRondelic(int obdelovalnaPovrsina, int polmerRondelice)
         {
-            int steviloRondelic = obdelovalnaPovrsina / polmerRondelice;
+            int kvadratRondelica = polmerRondelice * polmerRondelice;
+            int steviloRondelic = obdelovalnaPovrsina / kvadratRondelica;
             return steviloRondelic;
         }
     }

@@ -17,4 +17,6 @@ public class RondelicaItem
 
 	[Required]
 	public int ZacetekInKonecRob { get; set; }
+
+	public int SteviloOptimalnihRondelic { get; set; }
 }
