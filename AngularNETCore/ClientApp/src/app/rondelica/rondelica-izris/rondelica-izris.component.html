@@ -2,8 +2,6 @@
 
 <div class="izris-container" [ngStyle]="{'width.mm': dolzinaTraku, 'height.mm': sirinaTraku}">
 
-  <span class="izris-rondelica"></span>
-  <span class="izris-rondelica"></span>
-  <span class="izris-rondelica"></span>
-  <span class="izris-rondelica"></span>
+  <span *ngFor="let number of ngForRondelic" class="izris-rondelica"
+    [ngStyle]="{'width.mm': polmerRondelic, 'height.mm': polmerRondelic, 'margin.mm': (razdaljaMedRondelicama/3)}"></span>
 </div>

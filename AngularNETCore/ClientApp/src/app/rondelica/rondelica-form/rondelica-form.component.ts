@@ -17,10 +17,10 @@ export class RondelicaFormComponent implements OnInit {
   rondelicaForm = new FormGroup({
     dolzinaTraku: new FormControl(300),
     sirinaTraku: new FormControl(100),
-    polmerRondelic: new FormControl(30),
-    razdaljaMedRondelicama: new FormControl(20),
-    zgornjiInSpodnjiRob: new FormControl(5),
-    zacetekInKonecRob: new FormControl(10),
+    polmerRondelic: new FormControl(10),
+    razdaljaMedRondelicama: new FormControl(10),
+    zgornjiInSpodnjiRob: new FormControl(15),
+    zacetekInKonecRob: new FormControl(5),
   });
 
   constructor(private router: Router, private rondelicaService: RondelicaItemsServiceProxy) { }
