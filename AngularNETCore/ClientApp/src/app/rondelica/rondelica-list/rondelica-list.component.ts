@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 import { RondelicaItemsServiceProxy, IRondelicaItem } from 'src/app/services/api.client.generated';
 
 @Component({
@@ -21,7 +21,7 @@ export class RondelicaListComponent implements OnInit {
   }
 
   getRondelicaId (id) {
-    this.router.navigate(['./rondelica/' + id]);
+    this.router.navigate(['./rondelica/' + id],);
   }
 
 }

@@ -1,52 +1,22 @@
-<!-- <div style="height: 100%" fxLayout="column" *ngIf="item$ | async as item">
 
-  <mat-toolbar color="primary">
-      <span><mat-icon>receipt</mat-icon></span>
-      <span fxFlex="20px"></span>
-      <div fxLayout="column" class="mat-typography">
-          <div fxLayout="row">{{ item.ucenecLookup.ime + " " + item.ucenecLookup.priimek}}</div>
-          <div fxLayout="row" fxLayoutGap="8px">
-              <div>{{ item.ucnaPogodba.stevilka}}</div>
-              <mat-divider [vertical]="true"></mat-divider>
-              <mat-chip>{{ item.ucnaPogodba.statusPogodba}}</mat-chip>
-          </div>
-          
-      </div>
-      <span fxFlex></span>
-      <span>
-          <button mat-icon-button (click)="goBack()">
-              <mat-icon>reply</mat-icon>
-          </button>
-      </span>
-      <span>
-          <button mat-icon-button [matMenuTriggerFor]="menuHeader" matTooltipPosition="above">
-              <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menuHeader="matMenu">
-              <button mat-menu-item type="button" (click)="editItemModal(item.id)">
-                  <mat-icon>edit</mat-icon><span>Uredi</span>
-              </button>
-              <button mat-menu-item type="button" (click)="deleteItem(item)">
-                  <mat-icon>call_missed</mat-icon><span>Izbriši</span>
-              </button>
-              <button mat-menu-item type="button" (click)="registriraj()">
-                  <mat-icon>call_missed</mat-icon><span>Registriraj</span>
-              </button>
-          </mat-menu>
-      </span>
-  </mat-toolbar>
-
-</div>
- -->
-
- Hello
-širina traku
-<!--  <div *ngFor="let item of items"> -->
 
   <div  *ngIf="rondelica as item">
-
-   <p>Širina traku: {{item.polmerRondelic}}</p>
+    <h3>Algoritem za izračun rondelice je izračunal: </h3>
+    <div class="row">
+      <div class="col">
+        <p>Število rondelic, ki jih pridobite: <strong>{{item.steviloOptimalnihRondelic}}</strong></p>
+      </div>
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item active">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+    
 
 
   </div>
-<!--  </div> -->

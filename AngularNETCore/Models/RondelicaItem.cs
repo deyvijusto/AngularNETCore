@@ -13,6 +13,9 @@ public class RondelicaItem
 	public int PolmerRondelic { get; set; }
 
 	[Required]
+	public int RazdaljaMedRondelicama { get; set; }
+
+	[Required]
 	public int ZgornjiInSpodnjiRob { get; set; }
 
 	[Required]

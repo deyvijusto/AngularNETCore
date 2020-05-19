@@ -5,6 +5,7 @@ import { switchMap, map, debounceTime, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { RondelicaVnos } from '../rondelica.model';
+import { RondelicaItemsServiceProxy, IRondelicaItem } from 'src/app/services/api.client.generated';
 
 @Component({
   selector: 'app-rondelica-detail',
@@ -14,28 +15,20 @@ import { RondelicaVnos } from '../rondelica.model';
 export class RondelicaDetailComponent implements OnInit {
 
   id: number;
-  ROOT_URL: string = 'http://localhost:5000/api';
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private location: Location) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private location: Location,
+    private rondelicaService: RondelicaItemsServiceProxy
+  ) { }
 
-  rondelica: any;
+  rondelica: IRondelicaItem;
 
   ngOnInit() {
-
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
-      
-      // this.http.get<any>(this.ROOT_URL + '/rondelicaItems/' + this.id).pipe(
-      //   map(data => {
-      //     console.log(data, 'data observable');
-
-      //     this.rondelica$ = data;
-      //   })).subscribe();
-      // });
-
-      this.http.get<any>(this.ROOT_URL + '/rondelicaItems/' + this.id).subscribe(x => this.rondelica = x);
+      this.rondelicaService.getRondelicaItem(this.id).subscribe( response => this.rondelica = response);
     });
-
   }
 
   goBack() {

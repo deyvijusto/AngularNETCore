@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AngularNETCore.Models;
 using Microsoft.AspNetCore.Cors;
+using NSwag.Annotations;
 
 namespace AngularNETCore.Controllers
 {
@@ -78,10 +79,12 @@ namespace AngularNETCore.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+
+        [SwaggerResponse(StatusCodes.Status201Created, typeof(RondelicaItem))]
         public async Task<ActionResult<RondelicaItem>> PostRondelicaItem(RondelicaItem rondelicaItem)
         {
             rondelicaItem.SteviloOptimalnihRondelic = AlgoritemRondelice.IzracunRondelice(
-                rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob
+                rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.RazdaljaMedRondelicama, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob
             );
             rondelicaItem.SirinaTraku = 199;
             _context.RondelicaItem.Add(rondelicaItem);

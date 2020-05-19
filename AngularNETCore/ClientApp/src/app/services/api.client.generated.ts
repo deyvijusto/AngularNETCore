@@ -114,12 +114,12 @@ export class RondelicaItemsServiceProxy {
             (<any>response).error instanceof Blob ? (<any>response).error : undefined;
 
         let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
+        if (status === 201) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = RondelicaItem.fromJS(resultData200);
-            return _observableOf(result200);
+            let result201: any = null;
+            let resultData201 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result201 = RondelicaItem.fromJS(resultData201);
+            return _observableOf(result201);
             }));
         } else if (status !== 200 && status !== 204) {
             return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
@@ -354,6 +354,7 @@ export class RondelicaItem implements IRondelicaItem {
     sirinaTraku!: number;
     dolzinaTraku!: number;
     polmerRondelic!: number;
+    razdaljaMedRondelicama!: number;
     zgornjiInSpodnjiRob!: number;
     zacetekInKonecRob!: number;
     steviloOptimalnihRondelic!: number;
@@ -369,13 +370,14 @@ export class RondelicaItem implements IRondelicaItem {
 
     init(_data?: any) {
         if (_data) {
-            this.id = _data["id"];
-            this.sirinaTraku = _data["sirinaTraku"];
-            this.dolzinaTraku = _data["dolzinaTraku"];
-            this.polmerRondelic = _data["polmerRondelic"];
-            this.zgornjiInSpodnjiRob = _data["zgornjiInSpodnjiRob"];
-            this.zacetekInKonecRob = _data["zacetekInKonecRob"];
-            this.steviloOptimalnihRondelic = _data["steviloOptimalnihRondelic"];
+            this.id = _data["id"] !== undefined ? _data["id"] : <any>null;
+            this.sirinaTraku = _data["sirinaTraku"] !== undefined ? _data["sirinaTraku"] : <any>null;
+            this.dolzinaTraku = _data["dolzinaTraku"] !== undefined ? _data["dolzinaTraku"] : <any>null;
+            this.polmerRondelic = _data["polmerRondelic"] !== undefined ? _data["polmerRondelic"] : <any>null;
+            this.razdaljaMedRondelicama = _data["razdaljaMedRondelicama"] !== undefined ? _data["razdaljaMedRondelicama"] : <any>null;
+            this.zgornjiInSpodnjiRob = _data["zgornjiInSpodnjiRob"] !== undefined ? _data["zgornjiInSpodnjiRob"] : <any>null;
+            this.zacetekInKonecRob = _data["zacetekInKonecRob"] !== undefined ? _data["zacetekInKonecRob"] : <any>null;
+            this.steviloOptimalnihRondelic = _data["steviloOptimalnihRondelic"] !== undefined ? _data["steviloOptimalnihRondelic"] : <any>null;
         }
     }
 
@@ -388,13 +390,14 @@ export class RondelicaItem implements IRondelicaItem {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["sirinaTraku"] = this.sirinaTraku;
-        data["dolzinaTraku"] = this.dolzinaTraku;
-        data["polmerRondelic"] = this.polmerRondelic;
-        data["zgornjiInSpodnjiRob"] = this.zgornjiInSpodnjiRob;
-        data["zacetekInKonecRob"] = this.zacetekInKonecRob;
-        data["steviloOptimalnihRondelic"] = this.steviloOptimalnihRondelic;
+        data["id"] = this.id !== undefined ? this.id : <any>null;
+        data["sirinaTraku"] = this.sirinaTraku !== undefined ? this.sirinaTraku : <any>null;
+        data["dolzinaTraku"] = this.dolzinaTraku !== undefined ? this.dolzinaTraku : <any>null;
+        data["polmerRondelic"] = this.polmerRondelic !== undefined ? this.polmerRondelic : <any>null;
+        data["razdaljaMedRondelicama"] = this.razdaljaMedRondelicama !== undefined ? this.razdaljaMedRondelicama : <any>null;
+        data["zgornjiInSpodnjiRob"] = this.zgornjiInSpodnjiRob !== undefined ? this.zgornjiInSpodnjiRob : <any>null;
+        data["zacetekInKonecRob"] = this.zacetekInKonecRob !== undefined ? this.zacetekInKonecRob : <any>null;
+        data["steviloOptimalnihRondelic"] = this.steviloOptimalnihRondelic !== undefined ? this.steviloOptimalnihRondelic : <any>null;
         return data; 
     }
 }
@@ -404,6 +407,7 @@ export interface IRondelicaItem {
     sirinaTraku: number;
     dolzinaTraku: number;
     polmerRondelic: number;
+    razdaljaMedRondelicama: number;
     zgornjiInSpodnjiRob: number;
     zacetekInKonecRob: number;
     steviloOptimalnihRondelic: number;
@@ -413,7 +417,7 @@ export class WeatherForecast implements IWeatherForecast {
     date!: Date;
     temperatureC!: number;
     temperatureF!: number;
-    summary?: string | undefined;
+    summary?: string | null;
 
     constructor(data?: IWeatherForecast) {
         if (data) {
@@ -426,10 +430,10 @@ export class WeatherForecast implements IWeatherForecast {
 
     init(_data?: any) {
         if (_data) {
-            this.date = _data["date"] ? new Date(_data["date"].toString()) : <any>undefined;
-            this.temperatureC = _data["temperatureC"];
-            this.temperatureF = _data["temperatureF"];
-            this.summary = _data["summary"];
+            this.date = _data["date"] ? new Date(_data["date"].toString()) : <any>null;
+            this.temperatureC = _data["temperatureC"] !== undefined ? _data["temperatureC"] : <any>null;
+            this.temperatureF = _data["temperatureF"] !== undefined ? _data["temperatureF"] : <any>null;
+            this.summary = _data["summary"] !== undefined ? _data["summary"] : <any>null;
         }
     }
 
@@ -442,10 +446,10 @@ export class WeatherForecast implements IWeatherForecast {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
-        data["date"] = this.date ? this.date.toISOString() : <any>undefined;
-        data["temperatureC"] = this.temperatureC;
-        data["temperatureF"] = this.temperatureF;
-        data["summary"] = this.summary;
+        data["date"] = this.date ? this.date.toISOString() : <any>null;
+        data["temperatureC"] = this.temperatureC !== undefined ? this.temperatureC : <any>null;
+        data["temperatureF"] = this.temperatureF !== undefined ? this.temperatureF : <any>null;
+        data["summary"] = this.summary !== undefined ? this.summary : <any>null;
         return data; 
     }
 }
@@ -454,7 +458,7 @@ export interface IWeatherForecast {
     date: Date;
     temperatureC: number;
     temperatureF: number;
-    summary?: string | undefined;
+    summary?: string | null;
 }
 
 export interface FileResponse {
