@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { RondelicaVnos } from '../rondelica.model';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rondelica-form',
@@ -36,9 +39,26 @@ export class RondelicaFormComponent implements OnInit {
     return this.rondelicaForm.get('zacetekInKonecRob');
   }
 
-  constructor() { }
+
+  readonly ROOT_URL = 'http://localhost:5000/api';
+
+  constructor(private http: HttpClient, private router: Router, ) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.addRondelicaItem(this.rondelicaForm.value);
+
+  }
+
+  addRondelicaItem(form) {
+    const data: RondelicaVnos = form
+    this.http.post( this.ROOT_URL + '/rondelicaItems', data).subscribe((x:RondelicaVnos) => {
+      console.log(x, 'data');
+      this.router.navigate(['/rondelica/' + x.id],);
+
+    }); 
   }
 
 }

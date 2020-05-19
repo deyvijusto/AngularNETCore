@@ -1,0 +1,29 @@
+
+<div class="table-responsive">
+<table class="table table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Število rondelic</th>
+      <th scope="col">Dolžina traka</th>
+      <th scope="col">Širina traka</th>
+      <th scope="col">Polmer rondelic</th>
+      <th scope="col">začetek in konec roba</th>
+      <th scope="col">Zgornji in spodnji rob</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items; let i=index">
+      <th scope="row">{{i + 1 }}</th>
+      <td>{{item.steviloOptimalnihRondelic}} kom</td>
+      <td>{{item.dolzinaTraku}} mm</td>
+      <td>{{item.sirinaTraku}} mm</td>
+      <td>{{item.polmerRondelic}} mm</td>
+      <td>{{item.zacetekInKonecRob}} mm</td>
+      <td>{{item.zgornjiInSpodnjiRob}} mm</td>
+      <td><a href="" (click)="getRondelicaId()">Ogled</a></td>
+    </tr>
+    
+  </tbody>
+</table></div>

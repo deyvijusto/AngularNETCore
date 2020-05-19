@@ -66,24 +66,8 @@ export class RondelicaComponent implements OnInit {
   }
 
   addRondelicaItem(form) {
-    const data: RondelicaVnos = {
-      id: null,
-      SirinaTraku: this.sirinaTraku.value,
-      DolzinaTraku: this.dolzinaTraku.value,
-      PolmerRondelic: this.polmerRondelic.value,
-      ZgornjiInSpodnjiRob: this.zgornjiInSpodnjiRob.value,
-      ZacetekInKonecRob: this.zacetekInKonecRob.value,
-    }
-    const data2: RondelicaVnos = form
-   //  console.log(data, 'DAAAAAAAAAAAAAAAAATTATATA');
-    const data3: any = {
-      "sirinaTraku": 10,
-      "dolzinaTraku": 20,
-      "polmerRondelic": 30,
-      "zgornjiInSpodnjiRob": 40,
-      "zacetekInKonecRob": 8888
-    }
-    this.http.post( this.ROOT_URL + '/rondelicaItems', data2).subscribe(x => console.log(x, 'data') ); 
+    const data: RondelicaVnos = form
+    this.http.post( this.ROOT_URL + '/rondelicaItems', data).subscribe(x => console.log(x, 'data') ); 
   }
 
 

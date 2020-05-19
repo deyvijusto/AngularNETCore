@@ -9,20 +9,22 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RondelicaComponent } from './rondelica/rondelica.component';
 import { RondelicaFormComponent } from './rondelica/rondelica-form/rondelica-form.component';
+import { RondelicaListComponent } from './rondelica/rondelica-list/rondelica-list.component';
+import { RondelicaDetailComponent } from './rondelica/rondelica-detail/rondelica-detail.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavMenuComponent,
       HomeComponent,
-      CounterComponent,
       FetchDataComponent,
       RondelicaComponent,
-      RondelicaFormComponent
+      RondelicaFormComponent,
+      RondelicaListComponent,
+      RondelicaDetailComponent
    ],
    imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +34,8 @@ import { RondelicaFormComponent } from './rondelica/rondelica-form/rondelica-for
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'rondelica', component: RondelicaComponent },
-      { path: 'counter', component: CounterComponent },
+      { path: 'rondelica-list', component: RondelicaListComponent },
+      { path: 'rondelica/:id', component: RondelicaDetailComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
