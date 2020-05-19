@@ -15,7 +15,7 @@ import { of } from 'rxjs';
 export class RondelicaFormComponent implements OnInit {
 
   rondelicaForm = new FormGroup({
-    dolzinaTraku: new FormControl(1000),
+    dolzinaTraku: new FormControl(300),
     sirinaTraku: new FormControl(100),
     polmerRondelic: new FormControl(30),
     razdaljaMedRondelicama: new FormControl(20),

@@ -15,6 +15,7 @@ import { RondelicaFormComponent } from './rondelica/rondelica-form/rondelica-for
 import { RondelicaListComponent } from './rondelica/rondelica-list/rondelica-list.component';
 import { RondelicaDetailComponent } from './rondelica/rondelica-detail/rondelica-detail.component';
 import { RondelicaItemsServiceProxy } from './services/api.client.generated';
+import { RondelicaIzrisComponent } from './rondelica/rondelica-izris/rondelica-izris.component';
 
 @NgModule({
    declarations: [
@@ -25,7 +26,8 @@ import { RondelicaItemsServiceProxy } from './services/api.client.generated';
       RondelicaComponent,
       RondelicaFormComponent,
       RondelicaListComponent,
-      RondelicaDetailComponent
+      RondelicaDetailComponent,
+      RondelicaIzrisComponent
    ],
    imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

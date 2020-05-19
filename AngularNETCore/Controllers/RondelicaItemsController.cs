@@ -86,7 +86,6 @@ namespace AngularNETCore.Controllers
             rondelicaItem.SteviloOptimalnihRondelic = AlgoritemRondelice.IzracunRondelice(
                 rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.RazdaljaMedRondelicama, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob
             );
-            rondelicaItem.SirinaTraku = 199;
             _context.RondelicaItem.Add(rondelicaItem);
             await _context.SaveChangesAsync();
 
