@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using AngularNETCore.Models;
+using NSwag.AspNetCore;
 
 namespace AngularNETCore
 {
@@ -33,6 +34,9 @@ namespace AngularNETCore
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });
+
+            // Register the Swagger services
+            services.AddSwaggerDocument();
 
             // services.AddControllersWithViews(); // Stari pristop APIja
             // In production, the Angular files will be served from this directory
@@ -69,6 +73,10 @@ namespace AngularNETCore
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+
+            // Register the Swagger generator and the Swagger UI middlewares
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseSpa(spa =>
             {

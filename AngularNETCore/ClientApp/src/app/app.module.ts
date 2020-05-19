@@ -14,6 +14,7 @@ import { RondelicaComponent } from './rondelica/rondelica.component';
 import { RondelicaFormComponent } from './rondelica/rondelica-form/rondelica-form.component';
 import { RondelicaListComponent } from './rondelica/rondelica-list/rondelica-list.component';
 import { RondelicaDetailComponent } from './rondelica/rondelica-detail/rondelica-detail.component';
+import { RondelicaItemsServiceProxy } from './services/api.client.generated';
 
 @NgModule({
    declarations: [
@@ -39,7 +40,7 @@ import { RondelicaDetailComponent } from './rondelica/rondelica-detail/rondelica
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],
-  providers: [],
+  providers: [RondelicaItemsServiceProxy],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

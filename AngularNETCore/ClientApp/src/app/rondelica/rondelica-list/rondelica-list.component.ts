@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { RondelicaVnos } from '../rondelica.model';
 import { Router } from '@angular/router';
+import { RondelicaItemsServiceProxy, IRondelicaItem } from 'src/app/services/api.client.generated';
 
 @Component({
   selector: 'app-rondelica-list',
@@ -10,14 +9,13 @@ import { Router } from '@angular/router';
 })
 export class RondelicaListComponent implements OnInit {
 
-  items;
-  readonly ROOT_URL = 'http://localhost:5000/api';
+  items: IRondelicaItem[];
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.http.get<RondelicaVnos>(this.ROOT_URL + '/rondelicaItems').subscribe(result => {
-      this.items = result;
-    }, error => console.error(error));
-   }
+  constructor(private router: Router, rondelicaService: RondelicaItemsServiceProxy) {
+    rondelicaService.getRondelicaItemAll().subscribe(response => {
+      this.items = response;
+    });
+  }
 
   ngOnInit() {
   }
