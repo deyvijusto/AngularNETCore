@@ -84,7 +84,7 @@ namespace AngularNETCore.Controllers
         {
             if (rondelicaItem.PolmerRondelic > 10 )
             {
-                return BadRequest("Value must be passed in the request body.");
+                return BadRequest("Vrednost mora biti večja od 10");
             }
             else {
 

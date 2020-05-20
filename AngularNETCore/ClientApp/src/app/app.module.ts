@@ -16,6 +16,7 @@ import { RondelicaIzrisComponent } from './rondelica/rondelica-izris/rondelica-i
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
+import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 
 @NgModule({
    declarations: [
@@ -25,7 +26,8 @@ import { AppRoutingModule } from './app-routing.module';
       RondelicaFormComponent,
       RondelicaListComponent,
       RondelicaDetailComponent,
-      RondelicaIzrisComponent
+      RondelicaIzrisComponent,
+      ErrorHandlingComponent
    ],
    imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

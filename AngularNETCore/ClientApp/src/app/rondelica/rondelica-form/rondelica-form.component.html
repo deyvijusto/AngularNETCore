@@ -43,7 +43,7 @@
         <span matSuffix>mm</span>
       </mat-form-field>
 
-      <button mat-raised-button color="accent" type="submit">Izračunaj</button>
+      <button mat-raised-button color="accent" type="submit" [disabled]="!rondelicaForm.valid">Izračunaj</button>
 
     </div>
   </form>
