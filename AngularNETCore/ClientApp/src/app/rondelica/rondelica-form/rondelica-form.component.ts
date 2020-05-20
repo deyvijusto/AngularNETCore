@@ -31,7 +31,9 @@ export class RondelicaFormComponent implements OnInit {
   onSubmit() {
     this.rondelicaService.postRondelicaItem(this.rondelicaForm.value).subscribe(response => {
       this.router.navigate(['/rondelica/' + response.id]);
-    });
+    },
+    
+    err => console.log(err.response, 'NAPAKA'));
   }
 
 }

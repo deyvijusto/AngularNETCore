@@ -79,17 +79,25 @@ namespace AngularNETCore.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-
         [SwaggerResponse(StatusCodes.Status201Created, typeof(RondelicaItem))]
         public async Task<ActionResult<RondelicaItem>> PostRondelicaItem(RondelicaItem rondelicaItem)
         {
+            if (rondelicaItem.PolmerRondelic > 10 )
+            {
+                return BadRequest("Value must be passed in the request body.");
+            }
+            else {
+
             rondelicaItem.SteviloOptimalnihRondelic = AlgoritemRondelice.IzracunRondelice(
                 rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.RazdaljaMedRondelicama, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob
             );
+
+
             _context.RondelicaItem.Add(rondelicaItem);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRondelicaItem", new { id = rondelicaItem.Id,  }, rondelicaItem);
+            }
         }
 
         // DELETE: api/RondelicaItems/5
