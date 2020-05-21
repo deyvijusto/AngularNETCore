@@ -82,9 +82,9 @@ namespace AngularNETCore.Controllers
         [SwaggerResponse(StatusCodes.Status201Created, typeof(RondelicaItem))]
         public async Task<ActionResult<RondelicaItem>> PostRondelicaItem(RondelicaItem rondelicaItem)
         {
-            if (rondelicaItem.PolmerRondelic > 10 )
+            if (rondelicaItem.PolmerRondelic > rondelicaItem.DolzinaTraku )
             {
-                return BadRequest("Vrednost mora biti večja od 10");
+                return BadRequest("Polmer rondelice ne sme presečti Dolžino traku");
             }
             else {
 

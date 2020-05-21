@@ -1,12 +1,35 @@
 <div class="container">
 
+<h1 fxLayoutAlign="center">Aplikacija za optimalen izračun rondelic</h1>
+<br>
+<div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
+  <div fxLayout="column"  class="presentation mat-elevation-z5">
+    <h2>Spletna aplikacija - Rondelice</h2>
+    <p>Začnite <a routerLink="/rondelica">Tukaj</a> z izračunom aplikacije.  </p>
+    <br>
+    <div fxLayout="row">
+      <h3>Status strežnika: &nbsp;</h3>
+      <div fxLayout="row" *ngIf="isOnline">
+        <h3> <u>Online</u>  &nbsp;</h3>
+        <mat-icon color="primary">check</mat-icon>
+      </div>
+      <div fxLayout="row" *ngIf="!isOnline">
+        <h3> <u>Offline</u>  &nbsp;</h3>
+        <mat-icon color="warn">clear</mat-icon>
+      </div>
+    </div>
+    <div>
+      <h3>Število vnosov v bazo: {{totalRecords}}</h3>
+    </div>
+    
 
-<h1>Aplikacija za izračun rondelic</h1>
-<p>Dobrodošli na strani za izračun rondelic</p>
-<ul>
-  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-</ul>
+  </div>
+  <div>
+    <img src="assets/images/rondelice.jpg" alt="" srcset="" style="width: 700px;">
+  </div>
+
+</div>
+
+
 
 </div>

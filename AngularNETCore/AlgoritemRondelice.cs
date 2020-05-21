@@ -18,17 +18,17 @@ namespace AngularNETCore
             return steviloRondelic;
         }
 
-        private static int DejanskaObdelovalnaPovrsina(int celotnaPloscina, int ploscinaRobov)
+        public static int DejanskaObdelovalnaPovrsina(int celotnaPloscina, int ploscinaRobov)
         {
             int obdelovalnaPovrsina = celotnaPloscina - ploscinaRobov;
             return obdelovalnaPovrsina;
         }
 
-        private static int CelotnaPloscinaTrak(int sirinaTraka, int dolzinaTraka) {
+        public static int CelotnaPloscinaTrak(int sirinaTraka, int dolzinaTraka) {
             int ploscina = sirinaTraka * dolzinaTraka;
             return ploscina;
         }
-        private static int PloscinaRobov(int sirinaTraka, int dolzinaTraka, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
+        public static int PloscinaRobov(int sirinaTraka, int dolzinaTraka, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
         {
             int ploscinaZgornjiInSpodnjiRob = 2 * (zgornjiInSpodnjiRob * dolzinaTraka);
             int sirinaTrakaBrezRoba = sirinaTraka - (2 * zgornjiInSpodnjiRob);
@@ -36,7 +36,7 @@ namespace AngularNETCore
             int ploscinaRobov = 2* ploscinaZgornjiInSpodnjiRob + 2*ploscinaZacetekInKonecRob;
             return ploscinaRobov;
         }
-        private static int IzracunSteviloRondelic(int obdelovalnaPovrsina, int polmerRondelice, int razdaljaMedRondelicama)
+        public static int IzracunSteviloRondelic(int obdelovalnaPovrsina, int polmerRondelice, int razdaljaMedRondelicama)
         {
             int straniRondelice = polmerRondelice + (razdaljaMedRondelicama / 2);
             int kvadratRondelica = straniRondelice * straniRondelice;
