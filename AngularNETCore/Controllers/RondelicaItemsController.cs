@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using AngularNETCore.Models;
 using Microsoft.AspNetCore.Cors;
 using NSwag.Annotations;
-using AngularNETCore.RondelicaLibrary;
 
 namespace AngularNETCore.Controllers
 {
@@ -84,7 +83,7 @@ namespace AngularNETCore.Controllers
         public async Task<ActionResult<RondelicaItem>> PostRondelicaItem(RondelicaItem rondelicaItem)
         {
 
-            bool validated = ValidationCheckRondelica.ValidateInput(rondelicaItem);
+            
             int premerRondelic = rondelicaItem.PolmerRondelic * 2;
 
             if (premerRondelic > (rondelicaItem.DolzinaTraku - (rondelicaItem.ZacetekInKonecRob * 2)) )

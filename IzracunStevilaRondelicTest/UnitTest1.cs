@@ -8,7 +8,7 @@ namespace IzracunStevilaRondelicTest
     public class UnitTest1
     {
         [TestMethod]
-        public void IzračunRondelicePolmer_ReturnTrue()
+        public void IzračunRondelicePloscine_ReturnTrue()
         {
             // Tests that we expect to return true.
             int sirina = 20;
