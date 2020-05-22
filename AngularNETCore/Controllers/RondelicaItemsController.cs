@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AngularNETCore.Models;
 using Microsoft.AspNetCore.Cors;
 using NSwag.Annotations;
+using AngularNETCore.RondelicaLibrary;
 
 namespace AngularNETCore.Controllers
 {
@@ -82,11 +83,21 @@ namespace AngularNETCore.Controllers
         [SwaggerResponse(StatusCodes.Status201Created, typeof(RondelicaItem))]
         public async Task<ActionResult<RondelicaItem>> PostRondelicaItem(RondelicaItem rondelicaItem)
         {
-            if (rondelicaItem.PolmerRondelic > rondelicaItem.DolzinaTraku )
+
+            bool validated = ValidationCheckRondelica.ValidateInput(rondelicaItem);
+            int premerRondelic = rondelicaItem.PolmerRondelic * 2;
+
+            if (premerRondelic > (rondelicaItem.DolzinaTraku - (rondelicaItem.ZacetekInKonecRob * 2)) )
             {
-                return BadRequest("Polmer rondelice ne sme presečti Dolžino traku");
+                return BadRequest("Polmer rondelice je večji od delovne dolžine traku za izsekovanje rondelic!");
+            } else if (premerRondelic > (rondelicaItem.SirinaTraku - (rondelicaItem.ZacetekInKonecRob * 2)))
+            {
+                return BadRequest("Polmer rondelice je večji od delovne širine traku za izsekovanje rondelic!");
+            } else if (rondelicaItem.ZacetekInKonecRob > ((rondelicaItem.DolzinaTraku / 2) - premerRondelic))
+            {
+                return BadRequest("Začetek in konec roba traku, je prevelik da bi lahko izsekovali rondelice. Zmanjšajte polmer rondelice ali začetek in konec roba traku");
             }
-            else {
+            
 
             rondelicaItem.SteviloOptimalnihRondelic = AlgoritemRondelice.IzracunRondelice(
                 rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.RazdaljaMedRondelicama, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob
@@ -97,7 +108,7 @@ namespace AngularNETCore.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRondelicaItem", new { id = rondelicaItem.Id,  }, rondelicaItem);
-            }
+            
         }
 
         // DELETE: api/RondelicaItems/5
