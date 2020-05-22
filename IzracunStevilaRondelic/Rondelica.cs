@@ -7,7 +7,6 @@ namespace IzracunStevilaRondelic
 
         public static int IzracunRondelice(int sirinaTraka, int dolzinaTraka, int polmerRondelice, int razdaljaMedRondelicama, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
         {
-            int premerRondelice = (polmerRondelice * 2);
             int obdelovalnaPovrsina = DejanskaObdelovalnaPovrsina(sirinaTraka, dolzinaTraka, zgornjiInSpodnjiRob, zacetekInKonecRoba);
             return IzracunSteviloRondelic(obdelovalnaPovrsina, polmerRondelice, razdaljaMedRondelicama);
         }
@@ -21,9 +20,9 @@ namespace IzracunStevilaRondelic
         private static int PloscinaRobov(int sirinaTraka, int dolzinaTraka, int zgornjiInSpodnjiRob, int zacetekInKonecRoba)
         {
             int ploscinaZgornjiInSpodnjiRob = 2 * (zgornjiInSpodnjiRob * dolzinaTraka);
-            int sirinaTrakaBrezRoba = sirinaTraka - (2 * zgornjiInSpodnjiRob);
-            int ploscinaZacetekInKonecRob = 2 * sirinaTrakaBrezRoba;
-            int ploscinaRobov = 2 * ploscinaZgornjiInSpodnjiRob + 2 * ploscinaZacetekInKonecRob;
+            int sirinaTrakaBrezZgornjegaInSpodnjegaRoba = sirinaTraka - (2 * zgornjiInSpodnjiRob);
+            int ploscinaZacetekInKonecRob = 2 * (sirinaTrakaBrezZgornjegaInSpodnjegaRoba * zacetekInKonecRoba);
+            int ploscinaRobov = ploscinaZgornjiInSpodnjiRob + ploscinaZacetekInKonecRob;
             return ploscinaRobov;
         }
 

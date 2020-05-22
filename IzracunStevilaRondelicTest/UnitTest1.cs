@@ -25,16 +25,16 @@ namespace IzracunStevilaRondelicTest
         [TestMethod]
         public void IzracunStevilaRondelic_ReturnTrue()
         {
-            int sirinaTraka = 1000;
-            int dolzinaTraka = 5000;
-            int polmerRondelice = 50;
-            int razdaljaMedRondelicama = 30;
-            int zgornjiInSpodnjiRob = 50;
-            int zacetekInKonecRoba = 100;
+            int dolzinaTraka = 400;
+            int sirinaTraka = 150;
+            int polmerRondelice = 30;
+            int razdaljaMedRondelicama = 10;
+            int zgornjiInSpodnjiRob = 15;
+            int zacetekInKonecRoba = 30;
 
             int izracun = IzracunStevilaRondelic.Rondelica.IzracunRondelice(
                 sirinaTraka, dolzinaTraka, polmerRondelice, razdaljaMedRondelicama, zgornjiInSpodnjiRob, zacetekInKonecRoba);
-            int shouldBe = 945;
+            int shouldBe = 28;
 
             //assert
             Assert.AreEqual(shouldBe, izracun);

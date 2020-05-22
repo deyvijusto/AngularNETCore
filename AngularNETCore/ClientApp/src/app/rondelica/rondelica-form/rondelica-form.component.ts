@@ -13,12 +13,12 @@ import { ErrorHandlingComponent } from 'src/app/error-handling/error-handling.co
 export class RondelicaFormComponent implements OnInit {
 
   rondelicaForm = new FormGroup({
-    dolzinaTraku: new FormControl(300, Validators.required),
-    sirinaTraku: new FormControl(100, Validators.required),
-    polmerRondelic: new FormControl(10, Validators.required),
+    dolzinaTraku: new FormControl(400, Validators.required),
+    sirinaTraku: new FormControl(150, Validators.required),
+    polmerRondelic: new FormControl(30, Validators.required),
     razdaljaMedRondelicama: new FormControl(10, Validators.required),
     zgornjiInSpodnjiRob: new FormControl(15, Validators.required),
-    zacetekInKonecRob: new FormControl(5, Validators.required),
+    zacetekInKonecRob: new FormControl(30, Validators.required),
   });
 
   constructor(

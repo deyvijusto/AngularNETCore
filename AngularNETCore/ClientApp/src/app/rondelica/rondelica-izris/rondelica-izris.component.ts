@@ -20,7 +20,7 @@ export class RondelicaIzrisComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.steviloRondelic, 'steviloRondelic');
+    // console.log(this.steviloRondelic, 'steviloRondelic');
     this.ngForRondelic = Array(this.steviloRondelic).fill(0).map((x,i)=>i);
   }
 

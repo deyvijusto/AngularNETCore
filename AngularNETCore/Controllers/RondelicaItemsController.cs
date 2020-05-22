@@ -100,6 +100,10 @@ namespace AngularNETCore.Controllers
             rondelicaItem.SteviloOptimalnihRondelic = IzracunStevilaRondelic.Rondelica.IzracunRondelice(
                 rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.RazdaljaMedRondelicama, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob);
 
+            if(rondelicaItem.SteviloOptimalnihRondelic < 0)
+            {
+                return BadRequest("Parametri niso pravilni, ne dobite pozitivnega števila");
+            }
 
             _context.RondelicaItem.Add(rondelicaItem);
             await _context.SaveChangesAsync();
