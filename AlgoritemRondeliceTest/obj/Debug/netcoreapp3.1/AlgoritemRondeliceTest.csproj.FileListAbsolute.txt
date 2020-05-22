@@ -1,0 +1,4 @@
+C:\Users\kleme\Desktop\ASP.NET Core Projects\AngularNETCore\AlgoritemRondeliceTest\obj\Debug\netcoreapp3.1\AlgoritemRondeliceTest.csprojAssemblyReference.cache
+C:\Users\kleme\Desktop\ASP.NET Core Projects\AngularNETCore\AlgoritemRondeliceTest\obj\Debug\netcoreapp3.1\AlgoritemRondeliceTest.csproj.CoreCompileInputs.cache
+C:\Users\kleme\Desktop\ASP.NET Core Projects\AngularNETCore\AlgoritemRondeliceTest\obj\Debug\netcoreapp3.1\AlgoritemRondeliceTest.AssemblyInfoInputs.cache
+C:\Users\kleme\Desktop\ASP.NET Core Projects\AngularNETCore\AlgoritemRondeliceTest\obj\Debug\netcoreapp3.1\AlgoritemRondeliceTest.AssemblyInfo.cs

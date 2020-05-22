@@ -97,11 +97,9 @@ namespace AngularNETCore.Controllers
             {
                 return BadRequest("Začetek in konec roba traku, je prevelik da bi lahko izsekovali rondelice. Zmanjšajte polmer rondelice ali začetek in konec roba traku");
             }
-            
 
-            rondelicaItem.SteviloOptimalnihRondelic = AlgoritemRondelice.IzracunRondelice(
-                rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.RazdaljaMedRondelicama, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob
-            );
+            rondelicaItem.SteviloOptimalnihRondelic = IzracunStevilaRondelic.Rondelica.IzracunRondelice(
+                rondelicaItem.SirinaTraku, rondelicaItem.DolzinaTraku, rondelicaItem.PolmerRondelic, rondelicaItem.RazdaljaMedRondelicama, rondelicaItem.ZgornjiInSpodnjiRob, rondelicaItem.ZacetekInKonecRob);
 
 
             _context.RondelicaItem.Add(rondelicaItem);
